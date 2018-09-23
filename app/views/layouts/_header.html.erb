@@ -4,7 +4,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
-          <li><%= link_to "Home", '#' %></li>  <%#= いずれ、ログイン用のhome pageを別途につくる %>
+          <li><%= link_to "Home", root_path %></li>  <%#= いずれ、ログイン用のhome pageを別途につくる %>
           <li><%= link_to "Dashboard", '#' %></li>
           <li><%= link_to "Users", users_path %></li>  <%#= いずれ、検索してからこのリンクに飛ぶようにするかも %>
           <li class="dropdown">
