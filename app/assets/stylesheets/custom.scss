@@ -41,6 +41,16 @@ textarea {
   }
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
 
 /*=================================================================
       Typography
@@ -69,6 +79,19 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+.zero-margin-top {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  &:hover {
+    text-decoration: none;
+    opacity: 0.8;
+  }
 }
 
 
@@ -153,7 +176,7 @@ aside {
     }
     h1 {
       font-size: 1.4em;
-      text-align: left;
+      text-align: center;
       letter-spacing: -1px;
       margin-bottom: 3px;
       margin-top: 0px;
@@ -161,9 +184,15 @@ aside {
   }
 }
 
+aside.user-sidebar {
+  background-color: #eee;
+  border-radius: 10px;
+  margin-top: 70px;
+}
+
 .gravatar {
   /* float: left; */
-  margin-right: 10px;
+  // margin-right: 10px;
 }
 
 .gravatar_edit {
@@ -173,9 +202,10 @@ aside {
 .stats {
   overflow: auto;
   margin-top: 0;
+  text-align: center;
   padding: 0;
   a {
-    float: left;
+    // float: left;
     padding: 0 10px;
     border-left: 1px solid $gray-lighter;
     color: gray;
@@ -189,7 +219,7 @@ aside {
     }
   }
   strong {
-    display: block;
+    // display: block;
   }
 }
 
@@ -208,6 +238,9 @@ aside {
   padding: 0;
 }
 
+section.follow-button {
+  margin-top: 10px;
+}
 
 
 /*=================================================================
@@ -217,7 +250,7 @@ aside {
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   @include box_sizing;
 }
 
@@ -227,10 +260,15 @@ input {
 
 .search_user {
   width: 70%;
+  margin-left: 4%;
+  border-radius: 5px;
 }
 
 .search_user_btn {
   width: 20%;
+  margin-right: 4%;
+  border-radius: 5px;
+  font-size: 1.3rem;
 }
 
 #error_explanation {
@@ -279,3 +317,59 @@ input {
 }
 
 
+/*=================================================================
+      LongTermGoals table
+=================================================================*/
+
+.table-sortable {
+  margin-top: 30px;
+  border-collapse: collapse;
+  width: 100%;
+  td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  tbody {
+    tr {
+      &:nth-child(odd) {
+        background-color: #f8f8f8;
+      }
+      &:hover {
+        background-color: #eee !important;
+      }
+    }
+  }
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #666;
+    color: white;
+  }
+  tr {
+    height: auto;
+  }
+}
+
+
+/*=================================================================
+      LongTermGoals
+=================================================================*/
+
+h3.new-l-goal {
+  position: relative;
+}
+
+a {
+  &.new-l-goal {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    font-size: 1.5rem;
+    display: inline-block;
+    background-color: #eee;
+    padding: 5px;
+    border-radius: 5px;
+    color: black;
+  }
+}

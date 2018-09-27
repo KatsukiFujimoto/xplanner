@@ -1,22 +1,23 @@
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-3 user-sidebar">
     <section class="user_info">
-      <%= gravatar_for @user %>
-      <h1><%= @user.name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
+      <h1>
+        <%= gravatar_for @user %><br clear = "">
+        <%= link_to @user.name, user_long_term_goals_path(@user) %>
+      </h1>
     </section>
     <section class="stats">
       <%= render 'shared/stats' %>
       <% if @users.any? %>
         <div class="user_avatars">
           <% @users.each do |user| %>
-            <%= link_to gravatar_for(user, size: 30), user %>
+            <%= link_to gravatar_for(user, size: 30), user_long_term_goals_path(user) %>
           <% end %>
         </div>
       <% end %>
     </section>
   </aside>
-  <div class="col-md-8">
+  <div class="col-md-9">
     <h3><%= @title %></h3>
     <% if @users.any? %>
       <ul class="users follow">

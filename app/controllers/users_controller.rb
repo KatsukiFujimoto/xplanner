@@ -11,10 +11,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
-  def show
-    @user = User.find(params[:id])
-    @long_term_goals = @user.long_term_goals.rank(:row_order)
-  end
+  # def show
+  #   @user = User.find(params[:id])
+  #   redirect_to user_long_term_goals_path(@user)
+  # end
   
   def create
     @user = User.new(user_params)
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
-      redirect_to @user 
+      redirect_to user_long_term_goals_path(@user)
     else 
       render 'edit'
     end 

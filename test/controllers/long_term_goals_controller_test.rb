@@ -1,34 +1,27 @@
 require 'test_helper'
 
 class LongTermGoalsControllerTest < ActionDispatch::IntegrationTest
+  def setup 
+    @user = users(:michael)
+    @other_user = users(:archer)
+    @long_term_goal = @user.long_term_goals.build
+  end 
+  
   test "should get new" do
-    get long_term_goals_new_url
+    log_in_as(@user)
+    get new_user_long_term_goal_path(user_id: @user.id)
     assert_response :success
   end
 
-  test "should get create" do
-    get long_term_goals_create_url
-    assert_response :success
-  end
+  # test "should get show" do
+  #   log_in_as(@user)
+  #   get user_long_term_goal_path(@long_term_goal)
+  #   assert_response :success
+  # end
 
-  test "should get show" do
-    get long_term_goals_show_url
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get long_term_goals_edit_url
-    assert_response :success
-  end
-
-  test "should get update" do
-    get long_term_goals_update_url
-    assert_response :success
-  end
-
-  test "should get destroy" do
-    get long_term_goals_destroy_url
-    assert_response :success
-  end
-
+  # test "should get edit" do
+  #   log_in_as(@user)
+  #   get edit_user_long_term_goal_path(@long_term_goal)
+  #   assert_response :success
+  # end
 end
