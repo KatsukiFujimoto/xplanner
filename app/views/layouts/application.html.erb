@@ -9,6 +9,14 @@
 
   <body>
     <%= render 'layouts/header' %>
+    
+    <% if !logged_in? %>
+      <div class="head-background">
+        <h1>X PLANNER</h1>
+        <p>新感覚の双方向タスク管理サービス</p>
+      </div>
+    <% end %>
+    
     <div class="container">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
